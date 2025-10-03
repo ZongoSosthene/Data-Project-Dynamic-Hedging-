@@ -1,0 +1,15 @@
+apiVersion: 1
+
+# tells grafana where to find the prom connection
+datasources:
+  - name: prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+
+  - name: FastAPI Metrics
+    type: prometheus
+    access: proxy
+    url: http://fastapi:5000
+    acess: proxy
+    editable: true

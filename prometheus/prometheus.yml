@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# Scrape configs only contain one scrape target
+scrape_configs:
+  - job_name: 'my-app'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["http://opti-hedge-backend.onrender.com"]
+    
+  - job_name: 'fastapi-metrics'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ["http://opti-hedge-backend.onrender.com"]
+
+# extra: include rules for alerting
+rule_files:
+  - rules.yml
